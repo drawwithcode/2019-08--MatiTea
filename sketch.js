@@ -53,7 +53,7 @@ function draw() {
   // x and y position transormed from coordinates
   position = myMap.latLngToPixel(currentPosition.latitude, currentPosition.longitude);
   polimi = myMap.latLngToPixel(poliLat, poliLon);
-  
+
   // icons position
   image(positionIcon, position.x, position.y - 15);
   image(positionIcon, polimi.x, polimi.y - 15);
@@ -96,7 +96,7 @@ function InsideAndOutsideFenceActions() {
     textStyle(BOLD);
     text('Distance from Politecnico-Campus Candiani: ' + ceil(distance) + ' km \n Get there and reload this page!', position.x, (position.y) - 80);
     pop();
-    
+
     //draw distance between currenPosition and Polimi
     push();
     strokeWeight(2);
@@ -117,7 +117,7 @@ function openWebsite() {
 }
 
 function showWebsiteButton() {
-  if(fence.insideFence == true) {
+  if (fence.insideFence == true) {
     websiteButton();
   }
 }
