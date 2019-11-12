@@ -1,13 +1,47 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
-    <style> body {padding: 0; margin: 0;} </style>
-    <script src="p5.min.js"></script>
-    <!-- <script src="addons/p5.sound.min.js"></script> -->
-    <script src="sketch.js"></script>
-  </head>
-  <body>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
+
+  <title>Geolocation</title>
+
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .button {
+      font-family: 'Montserrat';
+      text-align: center;
+      font-size: 20px;
+      color:rgb(50, 27, 86);
+      height: 40px;
+      width: 360px;
+      border: 1px solid rgb(50, 27, 86);
+      border-radius: 20px;
+      background: white;
+      outline: none;
+      z-index: 1;
+    }
+
+    .button:hover {
+      color:white;
+      background: rgb(50, 27, 86);
+    }
+  </style>
+
+  <script src="p5.min.js"></script>
+  <script src="addons/p5.sound.min.js"></script>
+  <script src="addons/p5.geolocation.js"></script>
+  <script src="https://unpkg.com/mappa-mundi/dist/mappa.js" type="text/javascript"></script>
+  <script src="sketch.js"></script>
+</head>
+
+<body>
+</body>
+
 </html>
