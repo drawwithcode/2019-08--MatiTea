@@ -51,7 +51,7 @@ function draw() {
   // x and y position transormed from coordinates
   position = myMap.latLngToPixel(currentPosition.latitude, currentPosition.longitude);
   polimi = myMap.latLngToPixel(poliLat, poliLon);
-
+  
   // icons position
   image(positionIcon, position.x, position.y - 15);
   image(positionIcon, polimi.x, polimi.y - 15);
@@ -66,7 +66,7 @@ function windowResized() {
 function insideTheFence(position) {
   print("User is inside of the fence");
   print(fence.insideFence);
-  websiteButton();
+  showWebsiteButton();
 }
 
 function outsideTheFence(position) {
@@ -84,7 +84,7 @@ function InsideAndOutsideFenceActions() {
     text('Welcome to Polimi School of Design!', polimi.x, (polimi.y) - 55);
     text('You are here', position.x, (position.y) - 55);
     pop();
-
+    
   } else if (fence.insideFence == false) {
     distance = calcGeoDistance(currentPosition.latitude, currentPosition.longitude, 45.505932, 9.165888, 'km');
 
@@ -117,7 +117,7 @@ function openWebsite() {
 }
 
 function showWebsiteButton() {
-  if (fence.insideFence == false) {
+  if(fence.insideFence == true) {
     websiteButton();
   }
 }
