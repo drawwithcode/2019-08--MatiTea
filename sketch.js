@@ -31,7 +31,7 @@ function setup() {
   let options = {
     lat: currentPosition.latitude,
     lng: currentPosition.longitude,
-    zoom: 14,
+    zoom: 15,
     style: "mapbox://styles/matitea/ck2rd819a3cbp1cmk5923dcne",
     tabIndex: 2
   }
@@ -43,8 +43,6 @@ function setup() {
   myMap.overlay(canvas);
 
   fence = new geoFencePolygon(polygon, insideTheFence, outsideTheFence, 'km')
-
-  showWebsiteButton();
 }
 
 function draw() {
@@ -68,6 +66,7 @@ function windowResized() {
 function insideTheFence(position) {
   print("User is inside of the fence");
   print(fence.insideFence);
+  websiteButton();
 }
 
 function outsideTheFence(position) {
@@ -82,8 +81,10 @@ function InsideAndOutsideFenceActions() {
     noStroke();
     textFont("Montserrat");
     textStyle(BOLD);
-    text('Welcome to Polimi School of Design!', position.x, (position.y) - 55);
+    text('Welcome to Polimi School of Design!', polimi.x, (polimi.y) - 55);
+    text('You are here', position.x, (position.y) - 55);
     pop();
+
   } else if (fence.insideFence == false) {
     distance = calcGeoDistance(currentPosition.latitude, currentPosition.longitude, 45.505932, 9.165888, 'km');
 
@@ -96,7 +97,6 @@ function InsideAndOutsideFenceActions() {
     textStyle(BOLD);
     text('Distance from Politecnico-Campus Candiani: ' + ceil(distance) + ' km \n Get there and reload this page!', position.x, (position.y) - 80);
     pop();
-
     //draw distance between currenPosition and Polimi
     push();
     strokeWeight(2);
@@ -117,7 +117,7 @@ function openWebsite() {
 }
 
 function showWebsiteButton() {
-  if (fence.insideFence == true) {
+  if (fence.insideFence == false) {
     websiteButton();
   }
 }
